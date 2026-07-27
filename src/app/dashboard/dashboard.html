@@ -1,0 +1,193 @@
+<div class="dashboard-container">
+  <!-- Dashboard Header -->
+  <header class="dashboard-header">
+    <div class="header-left">
+      <h1 class="header-title">Dashboard</h1>
+      <p class="header-subtitle">Welcome back, Youssif Hossam! 👋</p>
+    </div>
+
+    <div class="header-right">
+      <!-- Quick Action Button -->
+      <button class="btn-primary">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <line x1="5" y1="12" x2="19" y2="12" />
+        </svg>
+        <span>New Borrowing</span>
+      </button>
+
+      <!-- Date Display -->
+      <div class="date-badge">
+        <svg class="date-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+          <line x1="16" y1="2" x2="16" y2="6" />
+          <line x1="8" y1="2" x2="8" y2="6" />
+          <line x1="3" y1="10" x2="21" y2="10" />
+        </svg>
+        <span class="date-text">July 26, 2026</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Summary Cards Grid -->
+  <section class="stats-grid">
+    <!-- Books Stat Card -->
+    <div class="stat-card card-blue">
+      <div class="card-header">
+        <span class="card-label">Total Books</span>
+        <div class="icon-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
+            <path d="M6 2v20" />
+          </svg>
+        </div>
+      </div>
+      <div class="card-body">
+        <h2 class="stat-number">{{ totalBooks }}</h2>
+      </div>
+    </div>
+
+    <!-- Members Stat Card -->
+    <div class="stat-card card-purple">
+      <div class="card-header">
+        <span class="card-label">Active Members</span>
+        <div class="icon-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+        </div>
+      </div>
+      <div class="card-body">
+        <h2 class="stat-number">21</h2>
+      </div>
+    </div>
+
+    <!-- Borrowed Stat Card -->
+    <div class="stat-card card-green">
+      <div class="card-header">
+        <span class="card-label">Borrowed Books</span>
+        <div class="icon-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m16 3 4 4-4 4" />
+            <path d="M20 7H4" />
+            <path d="m8 21-4-4 4-4" />
+            <path d="M4 17h16" />
+          </svg>
+        </div>
+      </div>
+      <div class="card-body">
+        <h2 class="stat-number">8</h2>
+      </div>
+    </div>
+
+    <!-- Overdue Stat Card -->
+    <div class="stat-card card-red">
+      <div class="card-header">
+        <span class="card-label">Overdue Returns</span>
+        <div class="icon-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+        </div>
+      </div>
+      <div class="card-body">
+        <h2 class="stat-number">3</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Borrowings Section -->
+  <section class="borrowings-section">
+    <div class="section-header">
+      <div class="section-header-left">
+        <h3 class="section-title">Recent Borrowings</h3>
+        <p class="section-description">Monitor currently checked-out materials and their return dates.</p>
+      </div>
+
+      <!-- Filter Tabs (Visual Mockups) -->
+      <div class="filter-tabs">
+        <button class="tab-btn active">All</button>
+        <button class="tab-btn">Active</button>
+        <button class="tab-btn">Overdue</button>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <table class="borrowings-table">
+        <thead>
+          <tr>
+            <th>Book Title</th>
+            <th>Borrowed By</th>
+            <th>Due Date</th>
+            <th>Status</th>
+            <th class="text-right">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="book-cell">
+              <div class="book-icon-bg">
+                <svg class="table-book-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
+                </svg>
+              </div>
+              <div class="book-meta">
+                <span class="book-name">Clean Code</span>
+                <span class="book-author">Robert C. Martin</span>
+              </div>
+            </td>
+            <td>
+              <div class="member-badge">
+                <span class="member-avatar">A</span>
+                <div class="member-meta">
+                  <span class="member-name">Ahmed</span>
+                  <span class="member-id">ID: #MEM-204</span>
+                </div>
+              </div>
+            </td>
+            <td class="date-cell">
+              <span class="due-text">Aug 08, 2026</span>
+            </td>
+            <td>
+              <span class="badge badge-warning">Due Soon</span>
+            </td>
+            <td class="text-right">
+              <div class="actions-group">
+                <button class="btn-action">Return</button>
+                <button class="btn-icon-only">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="1" />
+                    <circle cx="12" cy="5" r="1" />
+                    <circle cx="12" cy="19" r="1" />
+                  </svg>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Table Footer / Pagination -->
+    <div class="table-footer">
+      <span class="table-info">Showing 3 of 15 active entries</span>
+      <div class="pagination-controls">
+        <button class="btn-pagination disabled">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="btn-pagination">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,50 @@
+<div class="modal-overlay">
+  <div class="modal-card">
+    <h2 class="modal-title">Add New Book</h2>
+
+    <form class="modal-form" (submit)="addBook()">
+      <div class="form-group">
+        <label for="book-id" class="form-label">ID</label>
+        <input [(ngModel)]="book.id" name="id" type="text" id="book-id" class="form-input" placeholder="Enter book ID"
+          required />
+      </div>
+
+      <div class="form-group">
+        <label for="book-title" class="form-label">Title</label>
+        <input [(ngModel)]="book.name" name="name" type="text" id="book-title" class="form-input"
+          placeholder="Enter book title" required />
+      </div>
+
+      <div class="form-group">
+        <label for="book-author" class="form-label">Author</label>
+        <input [(ngModel)]="book.author" name="author" type="text" id="book-author" class="form-input"
+          placeholder="Enter author name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="book-category" class="form-label">Category</label>
+        <div class="select-wrapper">
+          <select [(ngModel)]="book.category" name="category" id="book-category" class="form-select">
+            <option value="Programming">Programming</option>
+            <option value="Self Help">Self Help</option>
+            <option value="Design">Design</option>
+          </select>
+          <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" -width="2">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="book-copies" class="form-label">Number of Copies</label>
+        <input [(ngModel)]="book.copies" name="copies" type="number" id="book-copies" class="form-input" min="1"
+          required />
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn-secondary">Cancel</button>
+        <button type="submit" class="btn-submit">Add Book</button>
+      </div>
+    </form>
+  </div>
+</div>

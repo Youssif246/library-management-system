@@ -1,0 +1,217 @@
+:host {
+  display: block;
+  height: 100vh;
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.sidebar {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+  box-shadow: 4px 0 24px rgba(15, 23, 42, 0.04), 1px 0 0 rgba(15, 23, 42, 0.01);
+  padding: 2.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Brand styling */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding-left: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.logo-wrapper {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  background: var(--bg-tertiary);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color);
+}
+
+.logo-icon {
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+}
+
+.logo-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color);
+  filter: blur(8px);
+  opacity: 0;
+  border-radius: var(--border-radius-md);
+  transition: var(--transition-smooth);
+  z-index: 1;
+}
+
+.brand:hover .logo-glow {
+  opacity: 0.3;
+}
+
+.brand:hover .logo-wrapper {
+  border-color: var(--accent-color);
+}
+
+.brand-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, var(--text-primary) 30%, var(--text-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Sidebar Nav styling */
+.sidebar-nav {
+  flex-grow: 1;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.875rem 1rem;
+  color: var(--text-secondary);
+  border-radius: var(--border-radius-lg);
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.link-icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.75;
+  transition: var(--transition-smooth);
+}
+
+.link-label {
+  z-index: 2;
+}
+
+/* Hover effect */
+.sidebar-link:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-tertiary);
+}
+
+.sidebar-link:hover .link-icon {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/* Active State styles */
+.sidebar-link.active {
+  color: var(--accent-color);
+  background-color: var(--accent-glow);
+  font-weight: 600;
+}
+
+.sidebar-link.active .link-icon {
+  color: var(--accent-color);
+  opacity: 1;
+}
+
+/* Active indicator light on the left */
+.sidebar-link .active-indicator {
+  position: absolute;
+  left: 0;
+  top: 25%;
+  height: 50%;
+  width: 4px;
+  background-color: var(--accent-color);
+  border-radius: 0 4px 4px 0;
+  opacity: 0;
+  transform: scaleY(0);
+  transition: var(--transition-smooth);
+}
+
+.sidebar-link.active .active-indicator {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+/* User Profile Section */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 1.25rem 0.5rem 0 0.5rem;
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+}
+
+.avatar-wrapper {
+  position: relative;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-color) 0%, #a855f7 100%);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #22c55e;
+  border: 2px solid var(--bg-secondary);
+  border-radius: 50%;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.user-role {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin-top: 2px;
+}

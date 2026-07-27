@@ -1,0 +1,123 @@
+<div class="books-container">
+    <!-- Books Header -->
+    <header class="books-header">
+        <div class="header-left">
+            <h1 class="header-title">Books</h1>
+            <p class="header-subtitle">Manage and catalog library resources.</p>
+        </div>
+
+        <div class="header-right">
+            <button class="btn-primary">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+                <span routerLink="/add-book">Add New Book</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Search & Filter Controls -->
+    <section class="controls-section">
+        <!-- Search Bar -->
+        <div class="search-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <input type="text" placeholder="Search books..." class="search-input" />
+        </div>
+
+        <!-- Filters Group -->
+        <div class="filters-group">
+            <!-- Category Dropdown Select -->
+            <div class="select-wrapper">
+                <select class="filter-select">
+                    <option value="" disabled selected>Category</option>
+                    <option value="programming">Programming</option>
+                    <option value="self-help">Self Help</option>
+                    <option value="design">Design</option>
+                </select>
+                <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </div>
+
+            <!-- Sort Dropdown Select -->
+            <div class="select-wrapper">
+                <select class="filter-select">
+                    <option value="" disabled selected>Sort</option>
+                    <option value="title">Title (A-Z)</option>
+                    <option value="author">Author</option>
+                    <option value="copies">Copies</option>
+                </select>
+                <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Books Catalog List Section -->
+    <section class="catalog-section">
+        <div class="table-container">
+            <table class="books-table">
+                <thead>
+                    <tr>
+                        <th>Book</th>
+                        <th>Author</th>
+                        <th>Copies</th>
+                        <th>Available</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (books.length === 0) {
+                    <h1>There is no books yet</h1>
+                    } @else {
+                    @for (Book of books; track $index) {
+                    <tr>
+                        <td class="book-info-cell">
+                            <div class="book-cover-art blue-gradient">
+                                <svg class="cover-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
+                                </svg>
+                            </div>
+                            <span class="book-title-text">{{ Book.name }}</span>
+                        </td>
+                        <td class="author-cell">{{ Book.author }}</td>
+                        <td class="count-cell">{{ Book.copies }}</td>
+                        <td class="count-cell">
+                            <span class="avail-badge status-normal">{{ Book.available }} available</span>
+                        </td>
+                    </tr>
+                    }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Catalog Pagination -->
+        <div class="pagination-wrapper">
+            <div class="pagination">
+                <button class="page-arrow prev disabled">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6" />
+                    </svg>
+                </button>
+
+                <div class="page-numbers">
+                    <button class="page-num active">1</button>
+                    <button class="page-num">2</button>
+                    <button class="page-num">3</button>
+                </div>
+
+                <button class="page-arrow next">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+</div>
