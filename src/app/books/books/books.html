@@ -25,17 +25,18 @@
                 <circle cx="11" cy="11" r="8" />
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
             </svg>
-            <input type="text" placeholder="Search books..." class="search-input" />
+            <input type="text" [(ngModel)]="query" (input)="getQuery(processedBooks, query, category)"
+                placeholder="Search books..." class="search-input" />
         </div>
 
         <!-- Filters Group -->
         <div class="filters-group">
             <!-- Category Dropdown Select -->
             <div class="select-wrapper">
-                <select class="filter-select">
-                    <option value="" disabled selected>Category</option>
+                <select class="filter-select" [(ngModel)]="category" (change)="filterByCategory(category)">
+                    <option value="allBooks" selected>All Books</option>
                     <option value="programming">Programming</option>
-                    <option value="self-help">Self Help</option>
+                    <option value="selfHelp">Self Help</option>
                     <option value="design">Design</option>
                 </select>
                 <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -46,7 +47,7 @@
             <!-- Sort Dropdown Select -->
             <div class="select-wrapper">
                 <select class="filter-select">
-                    <option value="" disabled selected>Sort</option>
+                    <option value="" disabled selected hidden>Sort</option>
                     <option value="title">Title (A-Z)</option>
                     <option value="author">Author</option>
                     <option value="copies">Copies</option>
@@ -71,10 +72,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if (books.length === 0) {
-                    <h1>There is no books yet</h1>
-                    } @else {
-                    @for (Book of books; track $index) {
+                    @if (disblayedBooks.length === 0) {
+                    <tr>
+                        <td colspan="6">
+                            No search matches
+                        </td>
+                    </tr>
+                    }
+                    @else {
+                    @for (Book of disblayedBooks; track $index) {
                     <tr>
                         <td class="book-info-cell">
                             <div class="book-cover-art blue-gradient">

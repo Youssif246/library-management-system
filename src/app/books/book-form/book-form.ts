@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Book } from '../books/book';
-import { BookData } from '../book-data';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BookData } from '../book-data';
+import { Book, Category } from '../books/book';
 
 @Component({
   selector: 'app-book-form',
@@ -18,14 +18,16 @@ export class BookForm {
     id: "",
     name: "",
     author: "",
-    category: "",
+    category: "programing",
     copies: 0,
     available: 0
   }
 
-  addBook(): void {
+  handleAddBook(): void {
     this.book.available = this.book.copies
-    this.bookService.addBook(this.book)
+    this.bookService.setItemInLocalStorage(
+      this.bookService.addBook(this.book, this.bookService.getBooks())
+    )
     this.router.navigate(["books"])
   }
 

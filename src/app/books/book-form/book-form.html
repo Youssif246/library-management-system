@@ -2,7 +2,7 @@
   <div class="modal-card">
     <h2 class="modal-title">Add New Book</h2>
 
-    <form class="modal-form" (submit)="addBook()">
+    <form class="modal-form" (submit)="handleAddBook()">
       <div class="form-group">
         <label for="book-id" class="form-label">ID</label>
         <input [(ngModel)]="book.id" name="id" type="text" id="book-id" class="form-input" placeholder="Enter book ID"
@@ -25,9 +25,9 @@
         <label for="book-category" class="form-label">Category</label>
         <div class="select-wrapper">
           <select [(ngModel)]="book.category" name="category" id="book-category" class="form-select">
-            <option value="Programming">Programming</option>
-            <option value="Self Help">Self Help</option>
-            <option value="Design">Design</option>
+            <option value="programming">Programming</option>
+            <option value="self-help">Self Help</option>
+            <option value="design">Design</option>
           </select>
           <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" -width="2">
             <polyline points="6 9 12 15 18 9" />
